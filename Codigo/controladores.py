@@ -1,4 +1,3 @@
-# controladores.py
 import gestor_carreras as gestor
 import utilidades_csv as csv_util
 import prints
