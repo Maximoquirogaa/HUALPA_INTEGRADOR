@@ -2,13 +2,11 @@
 from config import MODALIDADES
 
 def validar_registro(registro):
-    """
-    Valida que:
-    - duracion_anios y cupos_anuales sean enteros > 0
-    - modalidad esté en MODALIDADES
-    - id y nombre_carrera no estén vacíos
+    #Validacion de
+    # duracion_anios y cupos_anuales sean enteros > 0
+    # modalidad esté en MODALIDADES
+    # id y nombre_carrera no estén vacíos
     Devuelve (True, "") si OK, o (False, "mensaje") si hay error.
-    """
     try:
         dur = int(registro.get("duracion_anios", ""))
         cup = int(registro.get("cupos_anuales", ""))
