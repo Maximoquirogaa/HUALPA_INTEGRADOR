@@ -4,15 +4,14 @@ import prints
 from config import RUTA_BASE
 
 def controlador_listar_carreras():
-    """Obtiene las carreras y se las pasa a la vista."""
+    #Obtiene las carreras y se las pasa a los prints.
     carreras = gestor.obtener_todas_las_carreras()
     prints.mostrar_carreras(carreras)
 
 def _controlador_seleccionar_csv():
-    """
-    Lógica para seleccionar un CSV.
-    Devuelve la ruta seleccionada o None.
-    """
+    
+    #Lógica para seleccionar un CSV
+    #Devuelve la ruta seleccionada o None
     archivos = csv_util.buscar_archivos_csv(RUTA_BASE)
     prints.mostrar_archivos_csv(archivos)
     if not archivos:
@@ -33,7 +32,7 @@ def _controlador_seleccionar_csv():
         return None
 
 def controlador_agregar_carrera():
-    """Pide los datos para agregar una carrera."""
+    #pide los datos para agregar una carrera
     ruta = _controlador_seleccionar_csv()
     if not ruta:
         return
@@ -53,7 +52,7 @@ def controlador_agregar_carrera():
     prints.mostrar_mensaje(msg)
 
 def controlador_editar_carrera():
-    """Pide el ID y los nuevos datos para editar."""
+    #pide el ID y los nuevos datos para editar
     id_ = input("ID de la carrera a editar: ").strip()
     ruta, _, campos, registro = gestor.buscar_carrera_por_id(id_)
     
@@ -83,7 +82,7 @@ def controlador_editar_carrera():
 
 
 def controlador_eliminar_carrera():
-    """Pide el ID y la confirmación para eliminar."""
+    #Pide el ID para eliminar y la confirmación de la mismaa
     id_ = input("ID de la carrera a eliminar: ").strip()
     
     _, _, _, registro = gestor.buscar_carrera_por_id(id_)
@@ -101,12 +100,12 @@ def controlador_eliminar_carrera():
     prints.mostrar_mensaje(msg)
 
 def controlador_estadisticas():
-    """Obtiene las estadísticas y se las pasa a la vista."""
+    #Obtiene las estadísticas y se las pasa a los prints.
     stats = gestor.calcular_estadisticas()
     prints.mostrar_estadisticas(stats)
 
 def controlador_exportar_consolidado():
-    """Pide el nombre de archivo y llama al gestor."""
+    #Pide el nombre de archivo y llama al gestor
     destino = input("Nombre de archivo de salida (ej: consolidado.csv): ").strip()
     if not destino:
         prints.mostrar_mensaje("Cancelado.")
