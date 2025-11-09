@@ -2,7 +2,7 @@
 from config import MODALIDADES
 
 def imprimir_menu():
-    """Muestra el menú principal al usuario."""
+    #Muestra el menú principal al usuario
     print("""\n--- Gestor de Carreras Universitarias ---
 1) Listar todas las carreras
 2) Añadir carrera
@@ -14,11 +14,11 @@ def imprimir_menu():
 """)
 
 def mostrar_mensaje(mensaje):
-    """Muestra un mensaje simple (de éxito o error)."""
+    #Muestra un mensaje simple (de éxito o error)
     print(mensaje)
 
 def mostrar_carreras(carreras):
-    """Recibe una lista de carreras y las imprime formateadas."""
+    #Recibe una lista de carreras y las imprime formateadass
     if not carreras:
         print("No se encontraron carreras.")
         return
@@ -29,7 +29,7 @@ def mostrar_carreras(carreras):
               f'{r.get("cupos_anuales")} cupos | {r.get("modalidad")} | {r.get("_archivo_origen")}')
 
 def mostrar_archivos_csv(archivos):
-    """Muestra una lista numerada de archivos CSV."""
+    #Muestra una lista numerada de archivos CS
     if not archivos:
         print("No hay archivos CSV en la estructura de carpetas.")
         return
@@ -39,7 +39,7 @@ def mostrar_archivos_csv(archivos):
         print(f"{i}) {ruta}")
 
 def mostrar_estadisticas(stats):
-    """Recibe un diccionario de estadísticas y lo imprime."""
+    #Recibe un diccionario de estadísticas y lo imprime
     if stats["total_carreras"] == 0:
         print("No hay datos para calcular estadísticas.")
         return
@@ -50,12 +50,12 @@ def mostrar_estadisticas(stats):
     print(f"Duración media (años): {stats['duracion_media']:.2f}")
 
 def mostrar_registro(registro):
-    """Muestra un único registro (diccionario)."""
+    #Muestra un único registro (diccionario)
     print("Registro encontrado:")
     print(registro)
 
 def pedir_campo(campo, valor_actual=None):
-    """Función genérica para pedir un campo (para añadir o editar)."""
+    #Función pedir un campo (para añadir o editar).
     if campo == "modalidad":
         prompt = f"{campo} (Opciones: {MODALIDADES})"
     else:
