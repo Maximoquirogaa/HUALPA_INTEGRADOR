@@ -6,10 +6,10 @@ import controladores
 from config import RUTA_BASE
 
 def main():
-    """
-    Punto de entrada principal.
-    Verifica RUTA_BASE y ejecuta el bucle de menú.
-    """
+    
+    #Punto de entrada principal.
+    #Verifica RUTA_BASE y ejecuta el bucle de menú.
+    
     if not os.path.exists(RUTA_BASE):
         prints.mostrar_mensaje(f"Error: No se encontró la carpeta base: {RUTA_BASE}")
         prints.mostrar_mensaje("Asegúrese de que la carpeta 'Argentina' exista.")
