@@ -5,10 +5,9 @@ import utilidades_csv as csv_util
 import validaciones
 
 def obtener_todas_las_carreras():
-    """
-    Recorre todos los CSV y devuelve una lista de diccionarios,
-    cada uno representando una carrera.
-    """
+    #Recorre todos los CSV y devuelve una lista de diccionarios,
+    #cada uno representando una carrera.
+    
     archivos = csv_util.buscar_archivos_csv(RUTA_BASE)
     todas = []
     for ruta in archivos:
@@ -19,11 +18,10 @@ def obtener_todas_las_carreras():
     return todas
 
 def buscar_carrera_por_id(id_buscar):
-    """
-    Busca una carrera por su ID en todos los CSV.
-    Si la encuentra devuelve: (ruta_archivo, filas_del_archivo, campos, registro_encontrado)
-    Si no la encuentra devuelve: (None, None, None, None)
-    """
+    #Busca una carrera por su ID en todos los CSV.
+    #Si la encuentra devuelve: (ruta_archivo, filas_del_archivo, campos, registro_encontrado)
+    #Si no la encuentra devuelve: (None, None, None, None)
+
     archivos = csv_util.buscar_archivos_csv(RUTA_BASE)
     for ruta in archivos:
         filas, campos = csv_util.leer_csv(ruta)
@@ -33,10 +31,10 @@ def buscar_carrera_por_id(id_buscar):
     return None, None, None, None
 
 def agregar_carrera(ruta_csv, nuevo_registro):
-    """
-    Añade un nuevo registro a un CSV específico.
-    Devuelve (True, "Mensaje éxito") o (False, "Mensaje error").
-    """
+    
+    #Añade un nuevo registro a un CSV específico.
+    #Devuelve (True, "Mensaje éxito") o (False, "Mensaje error").
+
     ok, msg = validaciones.validar_registro(nuevo_registro)
     if not ok:
         return False, f"Error de validación: {msg}"
@@ -77,10 +75,9 @@ def editar_carrera(id_carrera, datos_actualizados):
 
 
 def eliminar_carrera(id_carrera):
-    """
-    Elimina una carrera por su ID.
-    Devuelve (True, "Mensaje éxito") o (False, "Mensaje error").
-    """
+
+    #Elimina una carrera por su ID.
+    #Devuelve (True, "Mensaje éxito") o (False, "Mensaje error").
     ruta, filas, campos, registro = buscar_carrera_por_id(id_carrera)
     if not ruta:
         return False, "ID de carrera no encontrado."
@@ -94,10 +91,10 @@ def eliminar_carrera(id_carrera):
 
 
 def calcular_estadisticas():
-    """
-    Calcula estadísticas sobre todas las carreras.
-    Devuelve un diccionario con los resultados.
-    """
+    
+    #Calcula estadísticas sobre todas las carreras.
+    #Devuelve un diccionario con los resultados.
+    
     carreras = obtener_todas_las_carreras()
     total_carreras = 0
     total_cupos = 0
@@ -123,10 +120,9 @@ def calcular_estadisticas():
     }
 
 def exportar_consolidado(archivo_destino):
-    """
-    Exporta todas las carreras a un único CSV.
-    Devuelve (True, "Mensaje éxito") o (False, "Mensaje error").
-    """
+    #Exporta todas las carreras a un único CSV.
+    #Devuelve (True, "Mensaje éxito") o (False, "Mensaje error").
+    
     carreras = obtener_todas_las_carreras()
     if not carreras:
         return False, "No hay carreras para exportar."
